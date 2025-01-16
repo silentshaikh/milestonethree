@@ -431,7 +431,7 @@ const cartNavig = useRouter();
     //fetch the product data
     const fetchProductList = async (api:string) => {
       try {
-        const fetchProd = await fetch(api);
+        const fetchProd = await fetch(api,{cache:'force-cache'});
       const getProd:ProductList[] = await fetchProd.json();
       return getProd;
       } catch (error) {
@@ -445,13 +445,13 @@ const cartNavig = useRouter();
     useEffect(() => {
       const callFetchFunc = async ()=> {
         //for Product list will show
-        const prodList = (await fetchProductList(`${process.env.BANDAGE_API}?limit=${limit}&page=${page}`)).map((e) => ({...e, productQuantity:1}));
+        const prodList = (await fetchProductList(`${process.env.NEXT_PUBLIC_BANDAGE_API}?limit=${limit}&page=${page}`)).map((e) => ({...e, productQuantity:1}));
         // console.log(prodList);
         
         dispatch({type:LOADPRODUCT,payload:prodList});
         
         //for home product
-        const homeList = (await fetchProductList(`${process.env.BANDAGE_API}`)).map((e) => ({...e,productQuantity:1}));
+        const homeList = (await fetchProductList(`${process.env.NEXT_PUBLIC_BANDAGE_API}`)).map((e) => ({...e,productQuantity:1}));
         const homeProductList = homeList.filter((e) => {
           return e.id>13 && e.id<18;
         });

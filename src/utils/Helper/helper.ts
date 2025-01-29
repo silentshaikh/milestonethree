@@ -338,15 +338,16 @@ export const pagin:Pagin[] = [
         color:'#bdbdbd',
     },
     {
-        id:5,
+        id:4,
         name:'Next',
         bgColor:'#fff',
-        color:'#23a6f0',
+        color:'#23a6f0',  
     },
 ];
 export const paginButton = {
     one:'1',
     two:'2',
+    three:'3',
     first:'First',
     next:'Next'
 };

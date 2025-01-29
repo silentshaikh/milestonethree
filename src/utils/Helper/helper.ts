@@ -347,7 +347,6 @@ export const pagin:Pagin[] = [
 export const paginButton = {
     one:'1',
     two:'2',
-    three:'3',
     first:'First',
     next:'Next'
 };
